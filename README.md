@@ -1,2 +1,13 @@
-# docs-vuepress
-技术文档，本仓库参考vuepress1.x
+# vueDocs
+
+> 
+
+## Development
+
+```bash
+yarn dev
+yarn build
+```
+
+For more details, please head VuePress's [documentation](https://v1.vuepress.vuejs.org/).
+
