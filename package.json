@@ -1,5 +1,5 @@
 {
-  "name": "vueDocs",
+  "name": "f2e-interview",
   "version": "0.0.1",
   "description": "大前端进阶指南",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "name": "Bruce",
     "email": ""
   },
-  "repository": "/vueDocs",
+  "repository": "/f2e-interview",
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs"
