@@ -56,7 +56,7 @@ module.exports = {
         {
           title: "目录",
           collapsable: false,
-          children: ["", "java-script", "hld-design", "http"],
+          children: ["react", "java-script", "hld-design", "http"],
         },
       ],
     },
