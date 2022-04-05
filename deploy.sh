@@ -17,9 +17,9 @@ git add -A
 git commit -m 'deploy'
 
 git remote add origin https://github.com/keeperdog/keeperdog.github.io.git
-git config pull.rebase true
-git pull https://github.com/keeperdog/keeperdog.github.io.git main
-git push https://github.com/keeperdog/keeperdog.github.io.git main
+# git config pull.rebase true
+# git pull https://github.com/keeperdog/keeperdog.github.io.git main
+git push -f https://github.com/keeperdog/keeperdog.github.io.git main
 
 # 如果你想要部署到 https://USERNAME.github.io
 # git push -f https://github.com/keeperdog/keeperdog.github.io.git main
