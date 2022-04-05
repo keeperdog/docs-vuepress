@@ -9,7 +9,7 @@
   },
   "repository": "/f2e-interview",
   "scripts": {
-    "dev": "vuepress dev docs",
+    "start": "vuepress dev docs",
     "build": "vuepress build docs",
     "deploy": "bash deploy.sh"
   },
