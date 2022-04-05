@@ -1,11 +1,11 @@
-# vueDocs
+# 大前端知识梳理
 
 > 
 
 ## Development
 
 ```bash
-yarn dev
+yarn start
 yarn build
 ```
 
