@@ -29,3 +29,5 @@ git push https://github.com/keeperdog/keeperdog.github.io.git main
 # git push -f git@github.com:USERNAME/<REPO>.git master:gh-pages
 
 cd -
+# 请不要随便修改此条危险命令
+rm -rf docs/dist
