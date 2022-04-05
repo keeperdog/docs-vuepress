@@ -40,4 +40,4 @@ TODO：
 
 ## JavaScript 垃圾回收(内存管理)是怎么做的？
 
-todo:
+todo: 测试一下快捷键
