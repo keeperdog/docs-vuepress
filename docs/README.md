@@ -1,15 +1,15 @@
 ---
 home: true
-heroImage: https://v1.vuepress.vuejs.org/hero.png
+heroImage: /2.jpeg
 tagline:
 actionText: Quick Start →
 actionLink: /guide/
 features:
   - title: 快
-    details: Feature 1 Description
+    details: 第一时间
   - title: 准
-    details: Feature 2 Description
+    details: 一针见血
   - title: 狠
-    details: Feature 3 Description
+    details: 地表最强
 footer: Made by keeperdog with ❤️
 ---

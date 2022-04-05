@@ -34,7 +34,9 @@ module.exports = {
     editLinks: false,
     docsDir: "",
     editLinkText: "",
-    lastUpdated: false,
+    lastUpdated: true,
+    displayAllHeaders: true,
+    logo: "/2.jpeg",
     nav: [
       {
         text: "大前端",
