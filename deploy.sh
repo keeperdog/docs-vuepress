@@ -19,14 +19,14 @@ git commit -m 'deploy'
 git remote add origin https://github.com/keeperdog/keeperdog.github.io.git
 # git config pull.rebase true
 # git pull https://github.com/keeperdog/keeperdog.github.io.git main
-git push -f https://github.com/keeperdog/keeperdog.github.io.git main
+# git push -f https://github.com/keeperdog/keeperdog.github.io.git main
 
 # 如果你想要部署到 https://USERNAME.github.io
 # git push -f https://github.com/keeperdog/keeperdog.github.io.git main
 # 另一种方式亦可
 # git config pull.rebase true
 # git pull origin main
-# git push --set-upstream origin main 
+git push -f --set-upstream origin main 
 
 # 如果发布到 https://USERNAME.github.io/<REPO>  REPO=github上的项目
 # git push -f git@github.com:USERNAME/<REPO>.git master:gh-pages
