@@ -15,7 +15,7 @@ cd docs/dist
 git init
 git add -A
 git commit -m 'deploy'
-
+yarn config set "strict-ssl" false
 git remote add origin https://github.com/keeperdog/keeperdog.github.io.git
 # git config pull.rebase true
 # git pull https://github.com/keeperdog/keeperdog.github.io.git main
@@ -26,6 +26,7 @@ git remote add origin https://github.com/keeperdog/keeperdog.github.io.git
 # 另一种方式亦可
 # git config pull.rebase true
 # git pull origin main
+
 git push -f --set-upstream origin main 
 
 # 如果发布到 https://USERNAME.github.io/<REPO>  REPO=github上的项目
