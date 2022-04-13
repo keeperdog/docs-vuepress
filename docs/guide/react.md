@@ -105,3 +105,40 @@ Fiber 树在首次渲染的时候会一次过生成。在后续需要 Diff 的�
 ## React中key的作用
 
 结合Diff 策略中的，Element Diff，对于列表节点提供唯一的key属性可以帮助React定位到正确的节点进行比较，从而大幅减少DOM操作次数，提高了性能。React在遇到列表时却又找不到key时提示的警告。虽然无视这条警告大部分界面也会正确工作，但这通常意味着潜在的性能问题。
+
+## React 18 三大特性
+
+**Automatic batching**：React 并发新特性，自动批处理
+
+在 React 18 以前，异步函数中的 setState 并不会进行合并，无法做合并处理，所以每次 setState 调用都会立即触发一次重渲染；React 18 带来的优化就是可以在任何情况下进行渲染优化了（异步回调函数，promise，定时器）的回调函数中调用多次的 setState 也会进行合并渲染
+
+当然如果你非要 setState 调用后立即重渲染也行，只需要用 flushSync 包裹：
+
+**新的 ReactDOM Render API**
+
+```js
+const container = document.getElementById("app");
+
+// 旧 render API
+ReactDOM.render(<App tab="home" />, container);
+
+// 新 createRoot API
+const root = ReactDOM.createRoot(container);
+root.render(<App tab="home" />);
+```
+
+**startTransition**：
+
+可以用来降低渲染优先级，所有在 startTransition 回调中更新的都会被认为是非紧急处理，如果一旦出现更紧急的处理（比如这里的用户输入），startTransition 就会中断之前的更新
+
+**SSR for Suspense**
+
+其他：  
+1.新增了useId，startTransition，useTransition，useDeferredValue，useSyncExternalStore，useInsertionEffect等新的 hook API
+2.针对浏览器和服务端渲染的 React DOM API 都有新的变化，诸如:
+
+React DOM Client 新增 createRoot 和 hydrateRoot 方法。
+React DOM Server 新增 renderToPipeableStream 和 renderToReadableStream 方法
+
+.部分弃用特性。
+ReactDOM.render 已被弃用。使用它会警告：在 React 17 模式下运行您的应用程序。 -
