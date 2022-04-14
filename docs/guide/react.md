@@ -139,6 +139,7 @@ root.render(<App tab="home" />);
 
 React DOM Client 新增 createRoot 和 hydrateRoot 方法。
 React DOM Server 新增 renderToPipeableStream 和 renderToReadableStream 方法
+render允许返回一个 undefined
 
 .部分弃用特性。
 ReactDOM.render 已被弃用。使用它会警告：在 React 17 模式下运行您的应用程序。 -
