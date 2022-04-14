@@ -3,6 +3,20 @@
 前端面试指南和知识体系汇总，开始梳理与 2022-04-04
 梳理人员[孔德胜](https://github.com/keeperdog)和吴斌
 
+## 英文开口
+
+When I graduated in 2015, I worked in Aspen tech for more than 2 years,
+
+At that time，the official language was English.
+
+Sending and receiving emails and writing emails are all in English,
+
+My spoken English is a little poor,
+
+Therefore, the English environment is not a big problem for me
+
+Give me some time to practice and everything will be fine
+
 ## 英文简单自我介绍
 
 It is really my honor to have this opportunity for an interview,
@@ -17,7 +31,7 @@ I was graduated from Bengbu University。My major is computer science and techno
 
 I have experience in developing web-based applications using rest API services。Knowledge of JIRA and Deployment Software， Basic knowledge of Git/Github and version control，strong responsibility and flexibility under work pressure，At least 5 years experience in structure / component design and implementation
 
-I think I'm a good team member and I'm a person of great honesty to others. Also I am able to work under great pressure.
+I think I'm a good team member and I'm a person of great honesty to others. Also I am able to work hard under great pressure.
 
 That’s all. Thank you for giving me the chance
 
