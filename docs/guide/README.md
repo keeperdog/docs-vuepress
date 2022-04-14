@@ -5,17 +5,17 @@
 
 ## 英文开口
 
-When I graduated in 2015, I worked in Aspen tech for more than 2 years,
+After I graduated in 2015, I worked in Aspen tech for more than two years,
 
-At that time，the official language was English.
+The official language at that time was English.
 
 Sending and receiving emails and writing emails are all in English,
 
-My spoken English is a little poor,
+Because there is no need to use it in my current job, so my spoken English is  poor,
 
-Therefore, the English environment is not a big problem for me
+But English environment is not a big problem for me
 
-Give me some time to practice and everything will be fine
+I believe in myself. Give me some time to practice and everything will become very good
 
 ## 英文简单自我介绍
 
