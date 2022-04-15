@@ -17,6 +17,8 @@ But English environment is not a big problem for me
 
 I believe in myself. Give me some time to practice and everything will become very good
 
+Pleased to make your acquaintance.I'm afraid my Chinese is not very good,I mostly have to use English.Anyway,as a student I spend most of my time studying or being with friends.The town where I live,Stratford,New Jersey,is a small suburban place,fairly ordinary.I live with three students who also go to my school.I am curious,what is your life like?
+
 ## 英文简单自我介绍
 
 It is really my honor to have this opportunity for an interview,
