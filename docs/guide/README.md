@@ -5,7 +5,7 @@
 
 ## 住址、兴趣、聊天
 
-I have been living in Jiuting Town, Songjiang District for five years.
+I have been living in Tingfu village, 626 Jiuting Street Jiuting Town, Songjiang District for five years.
 
 I like running and mountain climbing. I run 3-4 times a week, with an average of about 5km each time. Once the farthest run was 12km, which took about an hour.
 
