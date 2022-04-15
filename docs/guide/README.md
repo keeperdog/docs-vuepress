@@ -3,7 +3,29 @@
 前端面试指南和知识体系汇总，开始梳理与 2022-04-04
 梳理人员[孔德胜](https://github.com/keeperdog)和吴斌
 
-## 英文开口
+## 住址、兴趣、聊天
+
+I have been living in Jiuting Town, Songjiang District for five years.
+
+I like running and mountain climbing. I run 3-4 times a week, with an average of about 5km each time. Once the farthest run was 12km, which took about an hour.
+
+It's very tired after running, but the sleep quality is very good at night, and you will be very energetic the next day
+
+I also like watching American dramas, such as Captain America and the Avengers
+
+Pleased to make your acquaintance.I'm afraid my spoken English is not very good,I mostly have to use Mandarin Chinese. Anyway,as a self-motivated person I spend most of my time studying or being with friends.The town where I live,Stratford,New Jersey,is a small suburban place,fairly ordinary.I live with three students who also go to my school.I am curious,what is your life like?
+
+## 英文简单自我介绍
+
+It is really a great honor for me to have this opportunity for an interview,
+
+I hope i can make a good performance today. I'm confident that I can succeed.
+
+Now I will introduce myself briefly
+
+My name is Desheng Kong, come from Shanghai development team。I have been developing as a coder for more than 7 years
+
+I was graduated from Bengbu University。My major is computer science and technology。and I got my Bachelor's Degree in 2015
 
 After I graduated in 2015, I worked in Aspen tech for more than two years,
 
@@ -11,29 +33,15 @@ The official language at that time was English.
 
 Sending and receiving emails and writing emails are all in English,
 
-Because there is no need to use it in my current job, so my spoken English is  poor,
+Because there is no need to use it in my current job, so my spoken English is poor,
 
 But English environment is not a big problem for me
 
-I believe in myself. Give me some time to practice and everything will become very good
+Anyway, I believe in myself. Give me some time to practice and everything will be okay, better and better.
 
-Pleased to make your acquaintance.I'm afraid my Chinese is not very good,I mostly have to use English.Anyway,as a student I spend most of my time studying or being with friends.The town where I live,Stratford,New Jersey,is a small suburban place,fairly ordinary.I live with three students who also go to my school.I am curious,what is your life like?
+I have experience in developing web applications based on RESTful API services。Have a basic knowledge of Jira and Confluence Tool，Proficient in using git version control tools，Have a strong sense of responsibility，At least 5 years experience in structure / component design and implementation。
 
-## 英文简单自我介绍
-
-It is really my honor to have this opportunity for an interview,
-
-I hope i can make a good performance today. I'm confident that I can succeed.
-
-Now i will introduce myself briefly
-
-My name is Kong Desheng, from the Shanghai development team，I have been a programmer for 5 years。
-
-I was graduated from Bengbu University。My major is computer science and technology。and I got my Bachelor's degree after graduation in 2015
-
-I have experience in developing web-based applications using RESTful API services。Knowledge of JIRA and Deployment Software， Basic knowledge of Git/Github and version control，strong responsibility and flexibility under work pressure，At least 5 years experience in structure / component design and implementation
-
-I think I'm a good team member and I'm a person of great honesty to others. Also I am able to work hard under great pressure.
+I think I'm a good team member and I'm a person of great honesty to others. Also I am able to work hard under great pressure.  I am much self-motivated in my work.  Flexible, Positive and Innovation
 
 That’s all. Thank you for giving me the chance
 
