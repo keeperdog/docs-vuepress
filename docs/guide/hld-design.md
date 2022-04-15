@@ -8,7 +8,7 @@ todo：
 
 **命令模式**： 将一个动作封装成一个对象，从而使您可以用不同的请求对客户进行参数化。
 
-```js
+``` js
 class CommandManager {
   undoStack = [];
   redoStack = [];
@@ -22,8 +22,8 @@ class CommandManager {
     const command = { ...params }
 
     if (command) {
+      this.undoStack.push(this.store);
       this.store={ ...params };
-      this.undoStack.push(command);
       this.redoStack = [];
     }
   };
@@ -31,20 +31,21 @@ class CommandManager {
   undo = () => {
     const command = this.undoStack.pop();
     if (command) {
+      this.redoStack.push(this.store);
       this.store={ ...command };
-      this.redoStack.push(command);
     }
   };
 
   redo = () => {
     const command = this.redoStack.pop();
     if (command) {
+      this.undoStack.push(this.store);
       this.store={ ...command };
-      this.undoStack.push(command);
     }
   }
 }
 ```
+
 **跟策略模式的配合**
 
 ```html
