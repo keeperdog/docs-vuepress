@@ -1,6 +1,6 @@
 # 方案设计
 
-## 聊⼀聊如何在 JavaScript 中实现不可变对象？
+## 如何在 JavaScript 中实现不可变对象？
 
 todo：
 
@@ -118,4 +118,29 @@ class CommandManager {
 </script>
 
 </html>
+```
+
+## 单例模式
+
+**定义**： 保证一个类有且仅有一个实例，并提供一个访问它的全局访问点。  
+**实现**： 用闭包来实现，这样我们可以使用new来实例化
+
+```js
+const createSingleton = (function () {
+  let instance = null;
+  return function () {
+    if (instance) {
+      return instance;
+    }
+    // 你的业务逻辑 todo
+
+    return (instance = this);
+  };
+})();
+
+// test
+const a = new Singleton();
+const b = new Singleton();
+
+console.log(a === b); // true
 ```
