@@ -16,12 +16,28 @@
 2、为步骤1新创建的对象添加属性proto ，将该属性链接至构造函数的原型对象  
 3、将this指向这个新对象  
 4、执行构造函数内部的代码（例如给新对象添加属性）  
-5、如果构造函数返回非空对象，则返回该对象，否则返回刚创建的新对象。 
+5、如果构造函数返回非空对象，则返回该对象，否则返回刚创建的新对象。
  ::: tip
  构造函数必须返回对象，否则报错
  :::
 
+ ```js
+function _new(/* 构造函数 */ constructor, /* 构造函数参数 */ params) {
+  // 将 arguments 对象转为数组
+  var args = [].slice.call(arguments);
+  // 取出构造函数
+  var constructor = args.shift();
+  // 创建一个空对象，继承构造函数的 prototype 属性
+  var context = Object.create(constructor.prototype);
+  // 执行构造函数
+  var result = constructor.apply(context, args);
+  // 如果返回结果是对象，就直接返回，否则返回 context 对象
+  return typeof result === 'object' && result != null ? result : context;
+}
+ ```
+
 ## 谈谈你对作用域的理解
+
 **作用域**： 是在运行时代码中的某些特定部分中变量，函数和对象的可访问性。换句话说，作用域决定了代码区块中变量和其他资源的可见性（即可达性）。  
     简单的说作用域就是一个独立的地盘，让变量不会外泄、暴露出去。也就是说作用域最大的用处就是隔离变量，不同作用域下同名变量不会有冲突  
     es6之前有 全局作用域和函数作用域，es6之后有块级作用域(let/const)  
@@ -33,6 +49,7 @@
 **自由变量的取值**： 要到"创建这个函数的那个域" -> 作用域中取值,这里强调的是“创建”，而不是“调用”**，切记切记——其实这就是所谓的"静态作用域"
 
 ## javascript执行阶段
+
 1、解释阶段：  
     词法分析、
     语法分析、
@@ -49,7 +66,48 @@
 ## 谈谈你对闭包的理解？
 
 **MDN 的解释**：闭包是函数和声明该函数的词法环境的组合。
+
 **个人理解**：闭包 =『函数』和『函数体内可访问的变量总和』
+
+```js
+(function() {
+    var a = 1;
+    function add() {
+        var b = 2
+
+        var sum = b + a
+        console.log(sum); // 3
+    }
+    add()
+})()
+```
+**闭包的作用**:  
+闭包最大的作用就是隐藏变量，闭包的一大特性就是内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后
+
+基于此特性，JavaScript可以实现私有变量、特权变量、储存变量、React Hooks
+
+我们就以私有变量举例，私有变量的实现方法很多，有靠约定的（变量名前加_）,有靠Proxy代理的，也有靠Symbol这种新数据类型的。
+
+但是真正广泛流行的其实是使用闭包。
+```js
+function Person(){
+    var name = 'cxk';
+    this.getName = function(){
+        return name;
+    }
+    this.setName = function(value){
+        name = value;
+    }
+}
+
+const cxk = new Person()
+
+console.log(cxk.getName()) //cxk
+cxk.setName('jntm')
+console.log(cxk.getName()) //jntm
+console.log(name) //name is not defined
+
+```
 
 ## 前端有⼏种储存的⽅式？
 
