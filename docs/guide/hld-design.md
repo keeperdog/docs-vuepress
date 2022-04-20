@@ -352,6 +352,9 @@ postMessage的第一个参数为消息实体，它是一个结构化对象，即
 
 为了监听另一个页面对于localStorage的改变，可以监听window的storage事件。不能用setTimeout
 
+优化：broadcastchannel吧，这个在同域场景下非常优雅
+它与postMessage的区别就是：BroadcastChannel只能用于同源的页面之间进行通信，而postMessage却可以用于任何的页面之间的通信，换句话说，BroadcastChannel可以认为是postMessage的一个实例，它承担了postMessage的一个方面的功能。
+
 ```js
 A 页面
 
@@ -396,7 +399,7 @@ function sendMessage(message){
 
 ```
 
-- Tab间完全无关且非同源，Revit插件端登录，sku插件登录，主域相同，子域不同，即非同源。window.name可以，但无法通信
+- Tab间完全无关且非同源，e.g.: Revit插件端登录，sku插件登录，品牌区分：主域相同，子域不同，即非同源。window.name可以，但无法通信
 
 引入一个bridge.html用于桥接：
 
