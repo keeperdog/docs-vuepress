@@ -324,3 +324,83 @@ s.world // 'world'
 </html>
 
 ```
+
+## 跨浏览器tab页的通信解决方案尝试
+
+- Tab页间有依赖关系
+
+方法：通过window.postMessage onMessage进行通信。
+postMessage函数是绑定在window全局对象上的，因此必须有一个页面（比如A）可以获取另一个页面（比如B）的window。
+
+这样在B中，可以监听message事件，并通过回调函数参数的source获取A的window对象
+
+```js
+B页面
+
+window.addEventListner('message',(e)=>{
+    let {data,source,origin} = e;
+    source.postMessage('message echo','/');
+});
+
+```
+
+postMessage的第一个参数为消息实体，它是一个结构化对象，即可以通过“JSON.stringify和JSON.parse”函数还原的对象；第二个参数为消息发送范围选择器，设置为“/”意味着只发送消息给同源的页面，设置为“*”则发送全部页面。
+
+- 两个打开的页面属于同源范畴。
+
+对于互不相关的同源页面，可以对localStorage进行读写来实现通信（类似IPC中的共享内存方式）。
+
+为了监听另一个页面对于localStorage的改变，可以监听window的storage事件。不能用setTimeout
+
+```js
+A 页面
+
+window.addEventListener("storage", function(ev){
+    if (ev.key == 'message') {
+        // removeItem同样触发storage事件，此时ev.newValue为空
+        if(!ev.newValue)
+            return;
+        var message = JSON.parse(ev.newValue);
+        console.log(message);
+    }
+});
+
+function sendMessage(message){
+    localStorage.setItem('message',JSON.stringify(message));
+    localStorage.removeItem('message');
+}
+
+// 发送消息给B页面
+sendMessage('this is message from A');
+```
+
+```js
+B 页面
+
+window.addEventListener("storage", function(ev){
+    if (ev.key == 'message') {
+        // removeItem同样触发storage事件，此时ev.newValue为空
+        if(!ev.newValue)
+            return;
+        var message = JSON.parse(ev.newValue);
+        // 发送消息给A页面
+        sendMessage('message echo from B');
+    }
+});
+
+function sendMessage(message){
+    localStorage.setItem('message',JSON.stringify(message));
+    localStorage.removeItem('message');
+}
+
+
+```
+
+- Tab间完全无关且非同源，Revit插件端登录，sku插件登录，主域相同，子域不同，即非同源。window.name可以，但无法通信
+
+引入一个bridge.html用于桥接：
+
+A和B分别通过iframe引入bridge.html，即可通过postMessage向该页面发送消息或接收消息
+两个bridge.html间通过localStorage进行通信
+
+参考：传送门[菜鸟教程](https://zhuanlan.zhihu.com/p/63422027)
