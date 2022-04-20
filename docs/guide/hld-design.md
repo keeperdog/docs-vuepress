@@ -144,3 +144,183 @@ const b = new Singleton();
 
 console.log(a === b); // true
 ```
+
+## 多重继承
+
+JavaScript 不提供多重继承功能，即不允许一个对象同时继承多个对象。但是，可以通过变通方法，实现这个功能。
+
+```javascript
+function M1() {
+  this.hello = 'hello';
+}
+
+function M2() {
+  this.world = 'world';
+}
+
+function S() {
+  M1.call(this);
+  M2.call(this);
+}
+
+// 继承 M1
+S.prototype = Object.create(M1.prototype);
+// 继承链上加入 M2
+Object.assign(S.prototype, M2.prototype);
+
+// 指定构造函数
+S.prototype.constructor = S;
+
+var s = new S();
+s.hello // 'hello'
+s.world // 'world'
+```
+
+## flex布局实现九宫格
+
+``` html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+     .wrapper {
+      width: 50vw;
+      height: 50vh;
+      box-shadow: 0 0 10px rgb(31 55 153 / 10%);
+      background: #FFF;
+      padding: 20px;
+    }
+    .father {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      height: 100%;
+    }
+    .father > div {
+      border: 1px solid purple;
+      margin: -1px;
+      width: 33.33%;
+      height: 33.33%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="father">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+      <div>10</div>
+    </div>
+  </div>
+</body>
+</html>
+```
+
+## 实现两栏布局
+
+- N多种方法： <https://www.jb51.net/css/784590.html>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+   .box {
+     display: flex;
+     height: 100px;
+    }
+  .left {
+    flex:0 1 100px;
+    background: yellow;
+  }
+  .right {
+    flex:1;
+    background: #09c;
+  }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="left">左侧定宽</div>
+    <div class="right">右侧自适应</div>
+</div>
+</body>
+</html>
+```
+
+## 圣杯（双飞翼）布局flex简易实现
+
+- 圣杯布局和双飞翼布局基本上是一致的，都是两边固定宽度，中间自适应的三栏布局，双飞翼布局是在
+- 中间栏的div中嵌套一个div，内容写在嵌套的div里，然后对嵌套的div设置margin-left和margin-right，
+- 效果上表现为左右两栏在中间栏的上面，中间栏还是100%宽度，只不过中间栏的内容通过margin的值显示在中间
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .header,.footer {
+        height: 100px;
+        background: #000;
+        color:seashell;
+    }
+    .main {
+        height: calc(100vh - 200px);
+        background: #ccc;
+        display: flex;
+    }
+    .left {
+        height: calc(100vh - 200px);
+        background: purple;
+        flex: 0 1 300px;
+    }
+    .content {
+        height: calc(100vh - 200px);
+        background: #f90;
+        flex: 1;
+    }
+    .right {
+        height: calc(100vh - 200px);
+        background: seagreen;
+        flex: 0 1 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">header</div>
+  <div class="main">
+    <div class="left">left</div>
+    <div class="content">content</div>
+    <div class="right">right</div>
+  </div>
+  <div class="footer">footer</div>
+</body>
+</html>
+
+```
