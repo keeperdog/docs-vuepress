@@ -13,6 +13,12 @@ It's very tired after running, but the sleep quality is very good at night, and 
 
 I also like watching American dramas, such as Captain America and the Avengers
 
+These three words make me full of passion.
+When facing problems, I will be very optimistic, have the courage to face them and be not afraid of failure。
+It also makes me full of strength and always looking for doing more at work。
+
+If someone has other ideas at work, we should have more communication, more talk, exchange our ideas.   It's very important for me to find the best way to solve the problem, and try to do more demo before  starting the code.
+
 Pleased to make your acquaintance.I'm afraid my spoken English is not very good,I mostly have to use Mandarin Chinese. Anyway,as a self-motivated person I spend most of my time studying or being with friends.The town where I live,Stratford,New Jersey,is a small suburban place,fairly ordinary.I live with three students who also go to my school.I am curious,what is your life like?
 
 ## 英文简单自我介绍
