@@ -23,6 +23,10 @@ I also like watching American dramas, such as Captain America and the Avengers
 
 My wife used to be an ordinary office clerk。She has no job now and has been at home for a month during covid-19 period。She is very beautiful. I love her very much. I got married on April 30 last year。
 
+## 为什么离开
+
+On the one hand,Because the office of Jindi technology company will be relocated to the workplace in Wuhan。I have been working in Shanghai for more than 7 years. I want to stay here. I'd better be a new citizen of Shanghai。On the other hand, the work content in recent years is related to BIM. and Many colleagues come from Autodesk。So I decided to interview Autodesk. Of course, I hope and look forward to a good result。
+
 ## 三个词原因  
 
 These three words make me full of passion.
@@ -65,7 +69,7 @@ But English environment is not a big problem for me
 
 Anyway, I believe in myself. Give me some time to practice and everything will be okay, better and better.
 
-## 自我评价
+## 自我评价&优势
 
 I have experience in developing web applications based on RESTful API services。Have a basic knowledge of Jira and Confluence Tool，Proficient in using git version control tools，Have a strong sense of responsibility，At least 5 years experience in structure / component design and implementation。
 
