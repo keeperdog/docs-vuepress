@@ -5,7 +5,7 @@
 
 ## 开场白
 
-Nice to see Cecily again. You look good.
+Can you hear me? Nice to see Cecily again. You look good.
 
 Actually, I'm very nervous. I can only say some simple sentences. Maybe speak slowly，More daily communication
 
@@ -28,11 +28,19 @@ My wife used to be an ordinary office clerk。She has no job now and has been at
 
 ## 为什么离开，愿意到我们这里
 
-On the one hand,Because the office of Jindi technology company will be relocated to the workplace in Wuhan。I have been working in Shanghai for more than 7 years. I want to stay here. I'd better be a new citizen of Shanghai。On the other hand, the work content in recent years is related to BIM. and Many colleagues come from Autodesk。So I decided to interview Autodesk. Of course, I hope and look forward to a good result。
+On the one hand,Because the office of Jindi technology company will be relocated to the workplace in Wuhan。I have been working in Shanghai for more than 7 years. I want to stay here. I'd better be a new citizen of Shanghai。On the other hand, the work content in recent years is related to BIM. and Many colleagues come from Autodesk。So I decided to interview Autodesk.
 
 ## 我的职责
 
 I have two roles: team leader and core development. Responsible for code review,gathering requirements， requirement analysis,time and effort estimations，high level design decision ，QA and PMO technical support
+
+## 处理压力， 谈谈你在工作中遇到的困难和你的解决方式
+
+Pressure is very important to me. Good pressure, such as having a lot of assignments to work on, or approaching deadline, helps me to stay motivated and positive. Talk to my manager and give feedback to my team members as soon as possible. For example, I once had three large projects due in the same week, which was a lot of pressure. However, because I created a schedule that detailed how I would break down each project into small task, I completed all three projects ahead of time and avoided unnecessary stress.
+
+## 未来目标，职业规划
+
+Once I gain additional experience, I would like to move on from a senior technical title to principal to architect. I know this is a common path for many people in this position. However, for now, I am excited about focusing on and applying my technical skills in this job.
 
 ## 三个词原因  
 
@@ -44,7 +52,7 @@ It also makes me full of strength and always looking for doing more at work。
 
 If someone has other ideas at work, we should have more communication, more talk, exchange our ideas.   It's very important for me to find the best way to solve the problem, and try to do more demo before  starting the code.
 
-Find a lot of resources from the network，And I will ask for help from other members and feedback to my manager。I Will do more technical research and demo。Make sure it is executed correctly
+Not only will I find a lot of resources from the network，but also I will ask for help from other members and feedback to my manager。I Will do more technical research and demo。Make sure it is executed correctly
 
 ## 疫情
 
@@ -95,6 +103,18 @@ I think I'm a good team member and I'm a person of great honesty to others. Also
 so I can make a difference in a team.
 
 That’s all. Thank you for giving me the chance
+
+## 你有什么缺点
+
+I used to wait until the last minute to set appointments for the coming week, but I realized that scheduling in advance makes much more sense.
+
+I like to make sure that my work is perfect, so I tend to perhaps spend a little too much time checking it. However, I've come to a good balance by setting up a system to ensure everything is done correctly the first time.
+
+## 薪资期望
+
+I expect the annual total package to be between 650000 to 750000. It's best to have stock options. Stocks give me a strong sense of belonging。
+
+If this is the right job for me, I am sure we can come to an agreement on salary
 
 ## 一则英文小笑话
 
