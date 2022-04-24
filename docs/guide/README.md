@@ -7,13 +7,16 @@
 
 Nice to see Cecily again. You look good.
 
-Actually, I'm very nervous. I can only say some simple sentences. Maybe speak slowly
+Actually, I'm very nervous. I can only say some simple sentences. Maybe speak slowly，More daily communication
+
+Pleased to make your acquaintance.I'm afraid my spoken English is not very good,I mostly have to use Mandarin Chinese. Anyway,as a self-motivated person I spend most of my time studying or being with friends.The town where I live,Stratford,New Jersey,is a small suburban place,fairly ordinary.I live with three students who also go to my school.I am curious,what is your life like?
 
 Thank you very much for your patience。I look forward to a better result
 
 ## 住址、兴趣、聊天
 
 I have been living in Tingfu village, 626 Jiuting Street Jiuting Town, Songjiang District for five years.
+which is a small suburban place,fairly ordinary.I live with three students who also go to my school
 
 I like running and mountain climbing. I run 3-4 times a week, with an average of about 5km each time. Once the farthest run was 12km, which took about an hour.
 
@@ -43,8 +46,6 @@ Find a lot of resources from the network，And I will ask for help from other me
 
 The ShangHai government gave us a lot of food during covid-19 period。For example, rice, oil, vegetables, chicken and so on.Don't worry about my life. I'm fine，Thank you. You should also take care of yourself
 
-Pleased to make your acquaintance.I'm afraid my spoken English is not very good,I mostly have to use Mandarin Chinese. Anyway,as a self-motivated person I spend most of my time studying or being with friends.The town where I live,Stratford,New Jersey,is a small suburban place,fairly ordinary.I live with three students who also go to my school.I am curious,what is your life like?
-
 ## 英文简单自我介绍
 
 It is really a great honor for me to have this opportunity for an interview,
@@ -72,6 +73,18 @@ Anyway, I believe in myself. Give me some time to practice and everything will b
 ## 自我评价&优势
 
 I have experience in developing web applications based on RESTful API services。Have a basic knowledge of Jira and Confluence Tool，Proficient in using git version control tools，Have a strong sense of responsibility，At least 5 years experience in structure / component design and implementation。
+
+Proficiency JavaScript 、CSS 、HTML, and can independently develop complex projects without framework
+
+Familiar with front-end popular framework such as React、Vue and related family buckets, have the experience of constructing general framework based on React or Vue；
+
+Be familiar with the design of front-end component library, and have experience in leading the design of front-end cross business component library and BFF architecture based on koa2 (Eggjs);
+
+Familiar with TypeScript, And have rich strong type programming experience and Mini Programs mobile cross-terminal programming experience;
+
+Familiar with front-end performance optimization, have experience in writing CLI building tools;
+
+Over 2 years team management experience, good at technology research and sharing , time management, requirement analysis, task decomposition, etc;
 
 I think I'm a good team member and I'm a person of great honesty to others. Also I am able to work hard under great pressure.  I am much self-motivated in my work.  Flexible, Positive and Innovation
 
