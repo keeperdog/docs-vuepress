@@ -26,9 +26,13 @@ I also like watching American dramas, such as Captain America and the Avengers
 
 My wife used to be an ordinary office clerk。She has no job now and has been at home for a month during covid-19 period。She is very beautiful. I love her very much. I got married on April 30 last year。
 
-## 为什么离开
+## 为什么离开，愿意到我们这里
 
 On the one hand,Because the office of Jindi technology company will be relocated to the workplace in Wuhan。I have been working in Shanghai for more than 7 years. I want to stay here. I'd better be a new citizen of Shanghai。On the other hand, the work content in recent years is related to BIM. and Many colleagues come from Autodesk。So I decided to interview Autodesk. Of course, I hope and look forward to a good result。
+
+## 我的职责
+
+I have two roles: team leader and core development. Responsible for code review,gathering requirements， requirement analysis,time and effort estimations，high level design decision ，QA and PMO technical support
 
 ## 三个词原因  
 
@@ -87,6 +91,8 @@ Familiar with front-end performance optimization, have experience in writing CLI
 Over 2 years team management experience, good at technology research and sharing , time management, requirement analysis, task decomposition, etc;
 
 I think I'm a good team member and I'm a person of great honesty to others. Also I am able to work hard under great pressure.  I am much self-motivated in my work.  Flexible, Positive and Innovation
+
+so I can make a difference in a team.
 
 That’s all. Thank you for giving me the chance
 
