@@ -32,21 +32,15 @@ On the one hand,Because the office of Jindi technology company will be relocated
 
 ## 我的职责
 
-I have two roles: team leader and core development. Responsible for code review,gathering requirements， requirement analysis,time and effort estimations，high level design decision ，QA and PMO technical support
+I have two roles: team leader and core development. Responsible for code review，gathering requirements， requirement analysis,time and effort estimations，high level design decision ，QA and PMO technical support。
 
-## 处理压力， 谈谈你在工作中遇到的困难和你的解决方式
+## 处理压力， 谈谈你在工作中遇到的困难、挑战和你的解决方式
 
 Pressure is very important to me. Good pressure, such as having a lot of assignments to work on, or approaching deadline, helps me to stay motivated and positive. Talk to my manager and give feedback to my team members as soon as possible. For example, I once had three large projects due in the same week, which was a lot of pressure. However, because I created a schedule that detailed how I would break down each project into small task, I completed all three projects ahead of time and avoided unnecessary stress.
 
 ## 未来目标，职业规划
 
 Once I gain additional experience, I would like to move on from a senior technical title to principal to architect. I know this is a common path for many people in this position. However, for now, I am excited about focusing on and applying my technical skills in this job.
-
-## 三个词原因  
-
-These three words make me full of passion.
-When facing problems, I will be very optimistic, have the courage to face them and be not afraid of failure。
-It also makes me full of strength and always looking for doing more at work。
 
 ## 同事交流，遇到问题
 
@@ -82,7 +76,7 @@ But English environment is not a big problem for me
 
 Anyway, I believe in myself. Give me some time to practice and everything will be okay, better and better.
 
-## 自我评价&优势
+## 优势&为啥录用我&自我评价
 
 I have experience in developing web applications based on RESTful API services。Have a basic knowledge of Jira and Confluence Tool，Proficient in using git version control tools，Have a strong sense of responsibility，At least 5 years experience in structure / component design and implementation。
 
@@ -100,9 +94,19 @@ Over 2 years team management experience, good at technology research and sharing
 
 I think I'm a good team member and I'm a person of great honesty to others. Also I am able to work hard under great pressure.  I am much self-motivated in my work.  Flexible, Positive and Innovation
 
+With my qualifications and experience, I feel I am hardworking, responsible and diligent in any project I undertake. Your organization could benefit from my analytical and interpersonal skills
+
+They say Mr. Kong is an honest, hardworking and responsible man who deeply cares for his family and friends
+
 so I can make a difference in a team.
 
 That’s all. Thank you for giving me the chance
+
+## 三个词原因  
+
+These three words make me full of passion.
+When facing problems, I will be very optimistic, have the courage to face them and be not afraid of failure。
+It also makes me full of strength and always looking for doing more at work。
 
 ## 你有什么缺点
 
@@ -114,7 +118,7 @@ I like to make sure that my work is perfect, so I tend to perhaps spend a little
 
 I expect the annual total package to be between 650000 to 750000. It's best to have stock options. Stocks give me a strong sense of belonging。
 
-If this is the right job for me, I am sure we can come to an agreement on salary
+To be frank and open with you, If this is the right job for me, I am sure we can come to an agreement on salary
 
 ## 一则英文小笑话
 
