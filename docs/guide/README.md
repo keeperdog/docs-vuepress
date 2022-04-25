@@ -13,6 +13,30 @@ Pleased to make your acquaintance.I'm afraid my spoken English is not very good,
 
 Thank you very much for your patience。I look forward to a better result
 
+## 英文简单自我介绍
+
+It is really a great honor for me to have this opportunity for an interview,
+
+I hope i can make a good performance today. I'm confident that I can succeed.
+
+Now I will introduce myself briefly
+
+My name is Desheng Kong, come from Shanghai development team。I have been developing as a coder for more than 7 years
+
+I was graduated from Bengbu University。My major is computer science and technology。and I got my Bachelor's Degree in 2015
+
+After I graduated in 2015, I worked in Aspen tech for more than two years,
+
+The official language at that time was English.
+
+Sending and receiving emails and writing emails are all in English,
+
+Because there is no need to use it in my current job, so my spoken English is poor,
+
+But English environment is not a big problem for me
+
+Anyway, I believe in myself. Give me some time to practice and everything will be okay, better and better.
+
 ## 住址、兴趣、聊天
 
 I have been living in Tingfu village, 626 Jiuting Street Jiuting Town, Songjiang District for five years.
@@ -51,30 +75,6 @@ Not only will I find a lot of resources from the network，but also I will ask f
 ## 疫情
 
 The ShangHai government gave us a lot of food during covid-19 period。For example, rice, oil, vegetables, chicken and so on.Don't worry about my life. I'm fine，Thank you. You should also take care of yourself
-
-## 英文简单自我介绍
-
-It is really a great honor for me to have this opportunity for an interview,
-
-I hope i can make a good performance today. I'm confident that I can succeed.
-
-Now I will introduce myself briefly
-
-My name is Desheng Kong, come from Shanghai development team。I have been developing as a coder for more than 7 years
-
-I was graduated from Bengbu University。My major is computer science and technology。and I got my Bachelor's Degree in 2015
-
-After I graduated in 2015, I worked in Aspen tech for more than two years,
-
-The official language at that time was English.
-
-Sending and receiving emails and writing emails are all in English,
-
-Because there is no need to use it in my current job, so my spoken English is poor,
-
-But English environment is not a big problem for me
-
-Anyway, I believe in myself. Give me some time to practice and everything will be okay, better and better.
 
 ## 优势&为啥录用我&自我评价
 
