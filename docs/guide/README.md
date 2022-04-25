@@ -5,7 +5,7 @@
 
 ## 开场白
 
-Can you hear me? Nice to see Cecily again. Although the weather is bad today and it's raining heavily, you look good You look good.
+Can you hear me? Nice to see Cecily again. Although the weather is bad today and it's raining heavily, and thunder. you look good,
 
 Actually, I'm very nervous. I can only say some simple sentences. Maybe speak slowly，More daily communication
 
