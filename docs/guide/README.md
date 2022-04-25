@@ -15,7 +15,7 @@ Thank you very much for your patience。I look forward to a better result
 
 ## 英文简单自我介绍
 
-It is really a great honor for me to have this opportunity for an interview,
+It is really a great honor for me to have this opportunity for an interview.
 
 I hope i can make a good performance today. I'm confident that I can succeed.
 
@@ -68,7 +68,7 @@ Once I gain additional experience, I would like to move on from a senior technic
 
 ## 同事交流，遇到问题
 
-If someone has other ideas at work, we should have more communication, more talk, exchange our ideas.   It's very important for me to find the best way to solve the problem, and try to do more demo before  starting the code.
+If someone has other ideas at work, we should have more communication, more talk, exchange our ideas. It's very important for me to find the best way to solve the problem, and try to do more demo before starting the code.
 
 Not only will I find a lot of resources from the network，but also I will ask for help from other members and feedback to my manager。I Will do more technical research and demo。Make sure it is executed correctly
 
@@ -92,7 +92,7 @@ Familiar with front-end performance optimization, have experience in writing CLI
 
 Over 2 years team management experience, good at technology research and sharing , time management, requirement analysis, task decomposition, etc;
 
-I think I'm a good team member and I'm a person of great honesty to others. Also I am able to work hard under great pressure.  I am much self-motivated in my work.  Flexible, Positive and Innovation
+I think I'm a good team member and I'm a person of great honesty to others. Also I am able to work hard under great pressure. I am much self-motivated in my work. Flexible, Positive and Innovation
 
 With my qualifications and experience, I feel I am hardworking, responsible and diligent in any project I undertake. Your organization could benefit from my analytical and interpersonal skills
 
@@ -102,7 +102,7 @@ so I can make a difference in a team.
 
 That’s all. Thank you for giving me the chance
 
-## 三个词原因  
+## 三个词原因
 
 These three words make me full of passion.
 When facing problems, I will be very optimistic, have the courage to face them and be not afraid of failure。
