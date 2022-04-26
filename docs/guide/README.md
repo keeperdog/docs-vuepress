@@ -37,6 +37,10 @@ But English environment is not a big problem for me
 
 Anyway, I believe in myself. Give me some time to practice and everything will be okay, better and better.
 
+## 从哪里学习英语
+
+todo
+
 ## 住址、兴趣、聊天
 
 I have been living in Tingfu village, 626 Jiuting Street Jiuting Town, Songjiang District for five years.
