@@ -4,7 +4,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: "大前端进阶指南",
+  title: "Micro Frontend - qiankun",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -36,11 +36,16 @@ module.exports = {
     editLinkText: "",
     lastUpdated: true,
     displayAllHeaders: true,
-    logo: "/2.jpeg",
+    logo:
+      "https://gw.alipayobjects.com/zos/bmw-prod/8a74c1d3-16f3-4719-be63-15e467a68a24/km0cv8vn_w500_h500.png",
     nav: [
+      // {
+      //   text: "大前端",
+      //   link: "/guide/",
+      // },
       {
-        text: "大前端",
-        link: "/guide/",
+        text: "Micro Frontend",
+        link: "/autodesk/",
       },
       // {
       //   text: "Config",
@@ -52,11 +57,11 @@ module.exports = {
       },
     ],
     sidebar: {
-      "/guide/": [
+      "/autodesk/": [
         {
           title: "目录",
           collapsable: false,
-          children: ["", "java-script", "react", "hld-design", "performance", "http","browser","security","webpack"],
+          children: ["", "micro-frontend"],
         },
       ],
     },

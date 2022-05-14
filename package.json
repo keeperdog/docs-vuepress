@@ -1,7 +1,7 @@
 {
   "name": "f2e-interview",
   "version": "0.0.1",
-  "description": "大前端进阶指南",
+  "description": "Micro Frontend - qiankun",
   "main": "index.js",
   "authors": {
     "name": "Bruce",
