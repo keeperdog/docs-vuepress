@@ -5,11 +5,11 @@ tagline:
 actionText: Quick Start →
 actionLink: /autodesk/
 features:
-  - title: 快
-    details: 第一时间
-  - title: 准
-    details: 一针见血
-  - title: 狠
-    details: 地表最强
+  - title: Simple
+    details:
+  - title: Complete
+    details:
+  - title: Production-Ready
+    details:
 footer: Made by keeperdog with ❤️
 ---
