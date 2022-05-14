@@ -64,6 +64,23 @@ module.exports = {
           children: ["", "micro-frontend"],
         },
       ],
+      "/guide/": [
+        {
+          title: "目录",
+          collapsable: false,
+          children: [
+            "",
+            "java-script",
+            "react",
+            "hld-design",
+            "performance",
+            "http",
+            "browser",
+            "security",
+            "webpack",
+          ],
+        },
+      ],
     },
   },
 

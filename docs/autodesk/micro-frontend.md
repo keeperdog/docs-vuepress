@@ -1,4 +1,4 @@
-# qiankun
+# Qiankun
 
 ## Introduction
 
@@ -10,7 +10,7 @@ At present, qiankun has served more than 200 online applications inside Ant, and
 
 ## What is Micro FrontEnd?
 
-It is a techniques, strategies and recipes for building a modern web app with multiple teams that can ship features independently. 
+It is a techniques, strategies and recipes for building a modern web app with multiple teams that can ship features independently.
 
 目前主流的微前端方案包括以下几个：
 
@@ -38,7 +38,7 @@ Micro Frontend's architecture has the following core features:
 
   > State is isolated between each sub application and no shared runtime state.
 
-The micro frontends architecture is designed to solve a single application in a relatively long time span. As a result of the increase in the number of people and teams involved, it has evolved from a common application to a monolithic application  then becomes unmaintainable. Such a problem is especially common in enterprise web applications.
+The micro frontends architecture is designed to solve a single application in a relatively long time span. As a result of the increase in the number of people and teams involved, it has evolved from a common application to a monolithic application then becomes unmaintainable. Such a problem is especially common in enterprise web applications.
 
 ## Core Design Philosophy Of Qiankun
 
@@ -52,7 +52,7 @@ The micro frontends architecture is designed to solve a single application in a 
 
 ## What are some of the features of Qiankun
 
-- Based On [single-spa](https://github.com/CanopyTax/single-spa) , provide more out-of-box APIs. 
+- Based On [single-spa](https://github.com/CanopyTax/single-spa) , provide more out-of-box APIs.
 - Technology Agnostic，any javascript framework can use/integrate, whether React/Vue/Angular/JQuery or the others.
 - HTML Entry access mode, allows you to access the son as simple application like use the iframe.
 - Style Isolation, make sure styles don't interfere with each other.
