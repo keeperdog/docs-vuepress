@@ -1,8 +1,18 @@
-## 介绍 qiankun
+# qiankun
 
-> 在正式介绍 qiankun 之前，我们需要知道，qiankun 是一个基于 [single-spa](https://github.com/CanopyTax/single-spa) 的[微前端](https://micro-frontends.org/)实现库，旨在帮助大家能更简单、无痛的构建一个生产可用微前端架构系统。
+## Introduction
 
-> 微前端的概念借鉴自后端的微服务，主要是为了解决大型工程在变更、维护、扩展等方面的困难而提出的。目前主流的微前端方案包括以下几个：
+Qiankun is one of an implementation of Micro Frontends, which based on single-page-application. It aims to make it easier and painless to build a production-ready micro frontend architecture system.
+
+Qiankun hatched from Ant Financial’s unified frontend platform for cloud products based on micro frontends architecture. After full testing and polishing of a number of online applications, we extracted its micro frontend kernel and open sourced it. We hope to help the systems who has the same requirement more convenient to build its own micro frontends application in the community. At the same time, with the help of community, qiankun will be polished and improved.
+
+At present, qiankun has served more than 200 online applications inside Ant, and it's definitely trustworthy in terms of ease of use and completeness.
+
+## What is Micro FrontEnd?
+
+It is a techniques, strategies and recipes for building a modern web app with multiple teams that can ship features independently. 
+
+目前主流的微前端方案包括以下几个：
 
 - iframe
 - 基座模式，主要基于路由分发，qiankun 和 single-spa 就是基于这种模式
@@ -10,31 +20,47 @@
 - EMP，主要基于 Webpack5 Module Federation
 - Web Components
 
-> 严格来讲，这些方案都不算是完整的微前端解决方案，它们只是用于解决微前端中运行时容器的相关问题。
+Micro Frontend's architecture has the following core features:
 
-本文我们主要对 qiankun 所基于的基座模式进行介绍。它的主要思路是将一个大型应用拆分成若干个更小、更简单，可以独立开发、测试和部署的微应用，然后由一个基座应用根据路由进行应用切换。
+- Technology Agnostic
 
-## qiankun 的核心设计理念
+  > The main framework does not restrict access to the technology stack of the application, and the sub-applications have full autonomy.
 
-- 🥄 简单
+- Independent Development and Deployment
 
-  由于主应用微应用都能做到技术栈无关，qiankun 对于用户而言只是一个类似 jQuery 的库，你需要调用几个 qiankun 的 API 即可完成应用的微前端改造。同时由于 qiankun 的 HTML entry 及沙箱的设计，使得微应用的接入像使用 iframe 一样简单。
+  > The sub application repo is independent, and the frontend and backend can be independently developed. After deployment, the main framework can be updated automatically.
 
-- 🍡 解耦/技术栈无关
+- Incremental Upgrade
 
-  微前端的核心目标是将巨石应用拆解成若干可以自治的松耦合微应用，而 qiankun 的诸多设计均是秉持这一原则，如 HTML entry、沙箱、应用间通信等。这样才能确保微应用真正具备 独立开发、独立运行 的能力。
+  > In the face of various complex scenarios, it is often difficult for us to upgrade or refactor the entire technology stack of an existing system. Micro frontend is a very good method and strategy for implementing progressive refactoring.
 
-## 特性
+- Isolated Runtime
 
-- 📦 **基于 [single-spa](https://github.com/CanopyTax/single-spa)** 封装，提供了更加开箱即用的 API。
-- 📱 **技术栈无关**，任意技术栈的应用均可 使用/接入，不论是 React/Vue/Angular/JQuery 还是其他等框架。
-- 💪 **HTML Entry 接入方式**，让你接入微应用像使用 iframe 一样简单。
-- 🛡​ **样式隔离**，确保微应用之间样式互相不干扰。
-- 🧳 **JS 沙箱**，确保微应用之间 全局变量/事件 不冲突。
-- ⚡️ **资源预加载**，在浏览器空闲时间预加载未打开的微应用资源，加速微应用打开速度。
-- 🔌 **umi 插件**，提供了 [@umijs/plugin-qiankun](https://github.com/umijs/plugins/tree/master/packages/plugin-qiankun) 供 umi 应用一键切换成微前端架构系统。
+  > State is isolated between each sub application and no shared runtime state.
 
-## 项目实战
+The micro frontends architecture is designed to solve a single application in a relatively long time span. As a result of the increase in the number of people and teams involved, it has evolved from a common application to a monolithic application  then becomes unmaintainable. Such a problem is especially common in enterprise web applications.
+
+## Core Design Philosophy Of Qiankun
+
+- Simple
+
+  > Since the main application sub-applications can be independent of the technology stack, qiankun is just a jQuery-like library for users. You need to call several qiankun APIs to complete the micro frontends transformation of your application. At the same time, due to the design of qiankun's HTML entry and sandbox, accessing sub-applications is as simple as using an iframe.
+
+- Decoupling/Technology Agnostic
+
+  > As the core goal of the micro frontends is to disassemble the monolithic application into a number of loosely coupled micro applications that can be autonomous, all the designs of qiankun are follow this principle, such as HTML Entry, sandbox, and communicating mechanism between applications. Only in this way can we ensure that sub-applications truly have the ability to develop and run independently.
+
+## What are some of the features of Qiankun
+
+- Based On [single-spa](https://github.com/CanopyTax/single-spa) , provide more out-of-box APIs. 
+- Technology Agnostic，any javascript framework can use/integrate, whether React/Vue/Angular/JQuery or the others.
+- HTML Entry access mode, allows you to access the son as simple application like use the iframe.
+- Style Isolation, make sure styles don't interfere with each other.
+- JS Sandbox, ensure that global variables/events do not conflict between sub-applications.
+- Prefetch Assets, prefetch unopened sub-application assets during the browser idle time to speed up the sub-application opening speed.
+- Umi Plugin, @umijs/plugin-qiankun is provided for umi applications to switch to a micro frontends architecture system with one line code.
+
+## project practise
 
 > 本文适合刚接触 `qiankun` 的新人，介绍了如何从 0 构建一个 `qiankun` 项目。项目主要有以下构成：
 
@@ -50,7 +76,7 @@
 - **非 webpack 构建的微应用：**
 
   - 一些非 webpack 构建的项目，例如 jQuery 项目、jsp 项目，都可以按照这个处理。
-  - 接入之前请确保你的项目里的图片、音视频等资源能正常加载，如果这些资源的地址都是完整路径（例如 https://qiankun.umijs.org/logo.png ），则没问题。如果都是相对路径，需要先将这些资源上传到服务器，使用完整路径。
+  - 接入之前请确保你的项目里的图片、音视频等资源能正常加载，如果这些资源的地址都是完整路径（例如 <https://qiankun.umijs.org/logo.png> ），则没问题。如果都是相对路径，需要先将这些资源上传到服务器，使用完整路径。
 
 - **Angular 微应用：**
 
@@ -673,7 +699,7 @@ export default defineConfig({
 
 ### 微应用非 webpack 应用
 
-> 非 webpack 应用有个需要注意点的点：接入之前请确保你的项目里的图片、音视频等资源能正常加载，如果这些资源的地址都是完整路径（例如 https://qiankun.umijs.org/logo.png），则没问题。如果都是相对路径，需要先将这些资源上传到服务器，使用完整路径。
+> 非 webpack 应用有个需要注意点的点：接入之前请确保你的项目里的图片、音视频等资源能正常加载，如果这些资源的地址都是完整路径（例如 <https://qiankun.umijs.org/logo.png>），则没问题。如果都是相对路径，需要先将这些资源上传到服务器，使用完整路径。
 
 1. 入口文件声明 `entry`入口
 
@@ -842,7 +868,7 @@ export async function unmount(props: Object) {
    > 根据官方指示：先安装 `@angular-builders/custom-webpack` ，注意：angular 9 项目只能安装 9.x 版本，angular 10 项目可以安装最新版。
 
 ```bash
-$ yarn add @angular-builders/custom-webpack@9.2.0
+yarn add @angular-builders/custom-webpack@9.2.0
 ```
 
 > 在根目录增加 `custom-webpack.config.js`
