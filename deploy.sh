@@ -16,7 +16,7 @@ git init
 git add -A
 git commit -m 'deploy'
 yarn config set "strict-ssl" false
-git remote add origin https://github.com/keeperdog/autodesk.github.io.git
+git remote add origin https://github.com/keeperdog/keeperdog.github.io.git
 
 # git config pull.rebase true
 # git pull https://github.com/keeperdog/keeperdog.github.io.git main
