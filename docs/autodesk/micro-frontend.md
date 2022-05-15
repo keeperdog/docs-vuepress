@@ -1,26 +1,26 @@
 # Qiankun
 
-## Introduction
+## Introduction - What is qiankun?
 
-Qiankun is one of an implementation of Micro Frontends, which based on single-page-application. It aims to make it easier and painless to build a production-ready micro frontend architecture system.
+Qiankun is one of an implementation of Micro Frontends, which based on [single-spa](https://github.com/CanopyTax/single-spa). It aims to make it easier and painless to build a production-ready micro frontend architecture system.
 
-Qiankun hatched from Ant Financial’s unified frontend platform for cloud products based on micro frontends architecture. After full testing and polishing of a number of online applications, we extracted its micro frontend kernel and open sourced it. We hope to help the systems who has the same requirement more convenient to build its own micro frontends application in the community. At the same time, with the help of community, qiankun will be polished and improved.
+Qiankun hatched from Ant Financial’s unified frontend platform for cloud products based on micro frontends architecture. After full testing and polishing of a number of online applications, Ant f2e team extracted its micro frontend kernel and open sourced it. The frontend team hope to help the systems who has the same requirement more convenient to build its own micro frontends application in the community. At the same time, with the help of community, qiankun will be polished and improved.
 
 At present, qiankun has served more than 200 online applications inside Ant, and it's definitely trustworthy in terms of ease of use and completeness.
 
 ## What is Micro FrontEnd?
 
-It is a techniques, strategies and recipes for building a modern web app with multiple teams that can ship features independently.
+It's a techniques, strategies and recipes for building a modern web app with multiple teams that can ship features independently.
 
-目前主流的微前端方案包括以下几个：
+The current popular micro-frontend solutions include the following:：
 
 - iframe
-- 基座模式，主要基于路由分发，qiankun 和 single-spa 就是基于这种模式
-- 组合式集成，即单独构建组件，按需加载，类似 npm 包的形式
-- EMP，主要基于 Webpack5 Module Federation
+- The pedestal mode, mainly based on route distribution, qiankun and single-spa are based on this mode
+- Npm packages, That is, build components separately and load them on demand
+- EMP，based on Webpack5 Module Federation
 - Web Components
 
-Micro Frontend's architecture has the following core features:
+Micro Frontend's architecture has the following core values:
 
 - Technology Agnostic
 
@@ -38,17 +38,17 @@ Micro Frontend's architecture has the following core features:
 
   > State is isolated between each sub application and no shared runtime state.
 
-The micro frontends architecture is designed to solve a single application in a relatively long time span. As a result of the increase in the number of people and teams involved, it has evolved from a common application to a monolithic application then becomes unmaintainable. Such a problem is especially common in enterprise web applications.
+The micro frontends architecture is designed to solve a single application in a relatively long time span. As a result of the increase in the number of people and teams involved, it has evolved from a common small application to a monolithic application then becomes unmaintainable. Such a problem is especially common in enterprise web applications.
 
 ## Core Design Philosophy Of Qiankun
 
 - Simple
 
-  > Since the main application sub-applications can be independent of the technology stack, qiankun is just a jQuery-like library for users. You need to call several qiankun APIs to complete the micro frontends transformation of your application. At the same time, due to the design of qiankun's HTML entry and sandbox, accessing sub-applications is as simple as using an iframe.
+  > Since the main application and sub-applications can be independent of the technology stack, qiankun is just a jQuery-like library for users. You need to call several qiankun APIs to complete the micro frontends transformation of your application. At the same time, due to the design of qiankun's HTML entry and sandbox, accessing sub-applications is almost as simple as using an iframe.
 
 - Decoupling/Technology Agnostic
 
-  > As the core goal of the micro frontends is to disassemble the monolithic application into a number of loosely coupled micro applications that can be autonomous, all the designs of qiankun are follow this principle, such as HTML Entry, sandbox, and communicating mechanism between applications. Only in this way can we ensure that sub-applications truly have the ability to develop and run independently.
+  > As the core goal of the micro frontends is to disassemble the monolithic application into a number of loosely coupled micro applications that can be autonomous, all the designs of qiankun are follow this principle, such as HTML Entry, sandbox, and communicating mechanism between applications. Only in this way we can ensure that sub-applications truly have the ability to develop and run independently.
 
 ## What are some of the features of Qiankun
 
@@ -58,52 +58,51 @@ The micro frontends architecture is designed to solve a single application in a 
 - Style Isolation, make sure styles don't interfere with each other.
 - JS Sandbox, ensure that global variables/events do not conflict between sub-applications.
 - Prefetch Assets, prefetch unopened sub-application assets during the browser idle time to speed up the sub-application opening speed.
-- Umi Plugin, @umijs/plugin-qiankun is provided for umi applications to switch to a micro frontends architecture system with one line code.
+- Umi Plugin, @umijs/plugin-qiankun is provided for umi applications to switch to a micro frontends architecture system with only one line code.
 
-## project practise
+## Project Practise
 
-> 本文适合刚接触 `qiankun` 的新人，介绍了如何从 0 构建一个 `qiankun` 项目。项目主要有以下构成：
+> This article is suitable for newcomers to qiankun, and introduces how to build a qiankun project from 0. The project mainly consists of:
 
-- **主应用：**
-  - 使用 umi3.5，未使用 [@umijs/plugin-qiankun](https://github.com/umijs/plugins/tree/master/packages/plugin-qiankun)，而是直接使用的 [qiankun](https://qiankun.umijs.org/zh/guide/getting-started)
-- **vue 微应用：**
-  - 使用 vue2.x 创建
-  - 使用 vue3.x，暂未使用 vite 构建，目测 vite 不兼容
-- **react 微应用：**
-  - 使用 create-react-app 创建
-- **umi3 微应用：**
-  - 使用 umi3.结合插件 [@umijs/plugin-qiankun](https://github.com/umijs/plugins/tree/master/packages/plugin-qiankun)
-- **非 webpack 构建的微应用：**
+- **main application：**
+  - Using umi3.5, not using [@umijs/plugin-qiankun](https://github.com/umijs/plugins/tree/master/packages/plugin-qiankun)，but using [qiankun](https://qiankun.umijs.org/zh/guide/getting-started) directly
+- **vue sub application：**
+  - Created with vue2.x
+  - Using vue3.x, not built with vite yet, at present, vite mode is not compatible
+- **react sub application：**
+  - Created with create-react-app
+- **umi3 sub application:**
+  - Use umi3, Combine [@umijs/plugin-qiankun](https://github.com/umijs/plugins/tree/master/packages/plugin-qiankun)plugin
+- **Micro apps built without webpack：**
 
-  - 一些非 webpack 构建的项目，例如 jQuery 项目、jsp 项目，都可以按照这个处理。
-  - 接入之前请确保你的项目里的图片、音视频等资源能正常加载，如果这些资源的地址都是完整路径（例如 <https://qiankun.umijs.org/logo.png> ），则没问题。如果都是相对路径，需要先将这些资源上传到服务器，使用完整路径。
+  - Some non-webpack-built projects, such as jQuery projects, can follow this.
 
-- **Angular 微应用：**
+* **Angular Microapps：**
 
-  - 使用的 @angular/cli@9.1.12 版本
+  - Version of @angular/cli@9.1.12 used
 
-## 主应用环境搭建
+## Main application environment construction
 
-> 主应用按照官方的说法，不限技术栈，只需要提供一个容器 DOM，然后注册微应用并 start 即可。这里我们使用 umi 来初始化。
+> According to the official statement, the main application is not limited to the technology stack. It only needs to provide a container DOM, and then register the micro application and start it. Here we use umi to initialize.
 
-### 初始化 & 安装 qiankun
+### Initialize & install qiankun
 
 ```bash
-  # 项目初始化
+  # Project initialization
   $ yarn create @umijs/umi-app
-  # 安装依赖
+  # Install dependencies
   $ yarn
-  # 启动
+  # start up
   $ yarn start
-  # 安装 qiankun
+  # Install qiankun
   $ yarn add qiankun
 ```
 
-> 基本环境搭建完成，在主应用中增加一些菜单和路由，用于主应用页面以及主应用和微应用之间切换操作。页面布局和路由配置这里不做过多介绍，文末会奉上源码。大致页面如下图：
+> The basic environment is completed, and some menus and routes are added to the main application for switching between the main application page and the main application and the micro application. The page layout and routing configuration will not be introduced too much here, and the source code will be provided at the end of the article. The general page is as follows:
 
-![](https://files.mdnice.com/user/16854/9d165d24-429e-4101-ae6b-24a6d5e7baf1.png)
+![](./images/2022-05-15-19-57-12.png)
 
-### 主应用中注册微应用
+### Register the micro application in the main application
 
 > 注册微应用的基础配置信息。当浏览器 url 发生变化时，会自动检查每一个微应用注册的 activeRule 规则，符合规则的应用将会被自动激活。本示列分别有一个主应用五个微应用构成，在主应用中增加微应用的配置文件，对注册微应用做单独的管理。
 
@@ -1200,10 +1199,26 @@ export async function mount(props) {
 
 > 定义全局状态池，说白了就是在主应用中定义全局状态，可以使用 `redux` `vuex` 等来定义。定义好全局状态，可以定义一个全局的类，类中声明两个方法，一个用来获取全局状态，一个用来修改全局状态。定义好之后，把这个类通过第一种 `props` 的传值方式传入，微应用通过 `mount`=>`props` 接收。这种方式就不做演示，个人建议使用第二种方式。
 
-## 总结
+## Summary
 
 > 到这里，基于`qiankun`的微前端搭建基本完成。本文只是对 qiankun 从 0 搭建到搭建过程中遇到问题并且解决问题以及后期项目中的一些基础配置和使用做简单概述。下一次将会对`多应用部署`问题做个详细概述。
 
-## 源码地址
+In summary，If there is micro frontend applications scenario，I recommend that the team choose qiankun.
+
+- **Simple**
+
+  > Works with any javascript framework. Build your micro-frontend system just like using with iframe, but not iframe actually.
+
+- **Complete**
+
+  > Includes almost all the basic capabilities required to build a micro-frontend system, such as style isolation, js sandbox, preloading, and so on.
+
+- **Production-Ready**
+
+  > Had been extensively tested and polished by a large number of online applications both inside and outside of Ant Financial, the robustness is trustworthy.
+
+So in fact, It's really probably the most complete micro-frontends solution I've ever met.
+
+## Source Code
 
 [https://github.com/keeperdog/autodesk](https://github.com/keeperdog/autodesk)

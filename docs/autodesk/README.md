@@ -6,7 +6,7 @@
 
 **Gender**: Male | Married | Bachelor's Degree | 32
 
-**major**: Computer Science and Technology
+**Major**: Computer Science and Technology
 
 **Current Workspace**: Shanghai
 
