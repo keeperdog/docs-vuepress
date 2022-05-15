@@ -247,29 +247,29 @@ export default function IndexPage({ children }: any) {
 }
 ```
 
-## 创建对应的微应用
+## Create the corresponding micro application
 
-> 注意微应用的名称 `package.json` => `name` 需要和主应用中注册时的 `name` 相对应，且必须确保唯一。
+> Note that the name of the micro application `package.json` => `name` needs to correspond to the `name` registered in the main application, and must be unique。
 
-### 微应用 vue2.x
+### Micro application vue2.x
 
-#### 初始化
+#### initialization
 
 ```bash
-# 安装 vueCli
+# install vueCli
 $ yarn add @vue/cli
-# 创建项目
+# create project
 $ vue create vue2.x_root
-# 选择 vue2 版本
-# 安装依赖
+# Select vue2 version
+# Install dependencies
 $ yarn
-# 启动
+# start
 $ yarn serve
 ```
 
-#### 改造成微应用
+#### Transform into a micro-app
 
-1. 在 `src` 目录新增 `public-path.js`：
+1. Add `public-path.js` to the `src` directory:
 
 ```js
 if (window.__POWERED_BY_QIANKUN__) {
@@ -277,7 +277,7 @@ if (window.__POWERED_BY_QIANKUN__) {
 }
 ```
 
-2. 入口文件 `main.js` 修改
+2. Entry file `main.js` modification
 
 ```javascript
 import "./public-path";
@@ -293,7 +293,7 @@ let instance = null;
 function render(props = {}) {
   const { container } = props;
   router = new VueRouter({
-    // 注意这里的name,最好不要写死，直接使用主应用传过来的name
+    // Pay attention to the name here, it is best not to write it to hard code, directly use the name passed by the main application
     base: window.__POWERED_BY_QIANKUN__ ? `${props.name}` : "/",
     mode: "history",
     routes,
@@ -305,7 +305,7 @@ function render(props = {}) {
   }).$mount(container ? container.querySelector("#app") : "#app");
 }
 
-// 独立运行时
+// When running independently
 if (!window.__POWERED_BY_QIANKUN__) {
   render();
 }
@@ -344,28 +344,27 @@ module.exports = {
   devServer: {
     hot: true,
     disableHostCheck: true,
-    // 修改默认端口，和注册时一直
+    // Modify the default port, the same as the registration
     port: 8001,
     overlay: {
       warnings: false,
       errors: true,
     },
-    // 解决主应用加载子应用出现跨域问题
+    // Solve the cross-domain problem when the main application loads sub-applications
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
   },
-  // 自定义 webpack 配置
+  // Custom webpack configuration
   configureWebpack: {
     resolve: {
       alias: {
         "@": resolve("src"),
       },
     },
-    // 让主应用能正确识别微应用暴露出来的一些信息
     output: {
       library: `${name}-[name]`,
-      libraryTarget: "umd", // 把子应用打包成 umd 库格式
+      libraryTarget: "umd", 
       jsonpFunction: `webpackJsonp*${name}`,
     },
   },
