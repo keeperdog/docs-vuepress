@@ -371,29 +371,28 @@ module.exports = {
 };
 ```
 
-4. 主应用查看加载效果
+4. View the loading effect of the main application
 
 ![vue2](./images/2022-05-15-23-14-00.png)
 
-### 微应用 vue3.x
+### Micro application vue3.x
 
-#### 初始化
+#### initialization，About the same operation as above
 
 ```bash
-# 安装 vueCli
 $ yarn add @vue/cli
-# 创建项目
+# create project
 $ vue create vue3.x_root
-# 选择 vue3 版本
-# 安装依赖
+# Select vue3 version
+# Install dependencies
 $ yarn
-# 启动
+# start
 $ yarn serve
 ```
 
-#### 改造成微应用
+#### Transform into a micro-app
 
-1. 在 `src` 目录新增 `public-path.js`：
+1. Add `public-path.js` to the `src` directory:
 
 ```js
 if (window.__POWERED_BY_QIANKUN__) {
@@ -401,7 +400,7 @@ if (window.__POWERED_BY_QIANKUN__) {
 }
 ```
 
-2. 入口文件 `main.ts` 修改
+2. Entry file main.ts modification
 
 ```javascript
 //@ts-nocheck
@@ -453,7 +452,7 @@ export async function unmount() {
 }
 ```
 
-3. 打包配置修改（`vue.config.js`）：
+3. Package configuration modification (`vue.config.js`)
 
 ```javascript
 const path = require("path");
@@ -471,7 +470,7 @@ module.exports = {
   devServer: {
     hot: true,
     disableHostCheck: true,
-    // 修改默认端口，和注册时一直
+    // Modify the default port, the same as when registering
     port: 8002,
     overlay: {
       warnings: false,
@@ -481,41 +480,40 @@ module.exports = {
       "Access-Control-Allow-Origin": "*",
     },
   },
-  // 自定义webpack配置
+  // Custom webpack configuration
   configureWebpack: {
     resolve: {
       alias: {
         "@": resolve("src"),
       },
     },
-    // 让主应用能正确识别微应用暴露出来的一些信息
     output: {
       library: `${name}-[name]`,
-      libraryTarget: "umd", // 把子应用打包成 umd 库格式
+      libraryTarget: "umd",
       jsonpFunction: `webpackJsonp_${name}`,
     },
   },
 };
 ```
 
-4. 主应用查看加载效果
+4. View the loading effect of the main application
 
-![](https://files.mdnice.com/user/16854/9cbe3da7-a813-4ec8-9052-dd1c97c3b298.png)
+![vue3](./images/2022-05-15-23-28-22.png)
 
-### 微应用 react
+### Micro application react
 
-#### 初始化
+#### initialization
 
 ```bash
-# 创建项目
+# Create project
 $ yarn add create-react-app react_root
-# 启动
+# start
 $ yarn start
 ```
 
-#### 改造成微应用
+#### Transform into a micro-app
 
-1. 在 `src` 目录新增 `public-path.js`：
+1. Add `public-path.js` to `src` directory：
 
 ```js
 if (window.__POWERED_BY_QIANKUN__) {
@@ -523,15 +521,15 @@ if (window.__POWERED_BY_QIANKUN__) {
 }
 ```
 
-2. 设置 history 模式路由的 base：
-   > 刚刚创建的项目没有路由，所以先要安装路由
+2. Set the base for history mode routes:
+   > The project just created has no routing, so first install routing
 
 ```bash
-# 路由安装
+# Routing installation
 $ yarn add react-router react-router-dom
 ```
 
-> 入口文件 index.js 修改，为了避免根 id #root 与其他的 DOM 冲突，需要限制查找范围。
+> The entry file index.js is modified, in order to avoid the root id #root conflict with other DOM, it is necessary to limit the search range.
 
 ```javascript
 import "./public-path";
@@ -557,11 +555,11 @@ if (!window.__POWERED_BY_QIANKUN__) {
 }
 
 export async function bootstrap() {
-  console.log("[react16] react app bootstraped");
+  console.log("[react17] react app bootstraped");
 }
 
 export async function mount(props) {
-  console.log("[react16] props from main framework", props);
+  console.log("[react17] props from main framework", props);
   render(props);
 }
 
@@ -575,15 +573,15 @@ export async function unmount(props) {
 }
 ```
 
-3. webpack 打包配置修改
-   > 安装插件 @rescripts/cli，当然也可以选择其他的插件，例如 react-app-rewired
+3. webpack packaging configuration modification
+   > Install the plugin @rescripts/cli, of course you can also choose other plugins, such as react-app-rewired
 
 ```bash
-# 安装
+# install
 $ yarn add @rescripts/cli
 ```
 
-> 根目录增加配置文件 `.rescriptsrc.js`,注意一定是根目录下哦
+> Add the configuration file `.rescriptsrc.js` to the root directory, note that it must be in the root directory
 
 ```javascript
 const { name } = require("./package");
@@ -614,7 +612,7 @@ module.exports = {
 };
 ```
 
-4. `package.json`配置修改
+4. `package.json`Configuration modification
 
 ```javascript
 {
@@ -660,25 +658,25 @@ module.exports = {
 
 ```
 
-5. 主应用查看加载效果
+5. View the loading effect of the main application
 
-![](https://files.mdnice.com/user/16854/606079c5-3378-4615-bb34-04c5a81cf1ab.png)
+![react](./images/2022-05-15-23-41-05.png)
 
-### 微应用 umi
+### Micro application umi
 
-> umi 项目初始化方式参考初始化主应用的方式。umi 应用使用 `@umijs/plugin-qiankun` 可以一键开启微前端模式。
+> For the initialization method of the umi project, refer to the method of initializing the main application. umi applications use `@umijs/plugin-qiankun` to enable micro-frontend mode with one click.
 
-#### 启用方式
+#### How to enable
 
-1. 安装插件
+1. Install the plugin
 
 ```bash
-# 安装 @umijs/plugin-qiankun
+# install @umijs/plugin-qiankun
 $ yarn add @umijs/plugin-qiankun
 ```
 
-2. 修改配置文件 `umirc.ts`
-   > 如果是配置文件抽离到`config`中，直接修改 `config.js`
+2. Modify the configuration file `umirc.ts`
+   > If the configuration file is extracted into `config`, directly modify `config.js`
 
 ```js
 import { defineConfig } from "umi";
@@ -689,24 +687,24 @@ export default defineConfig({
   },
   routes: [{ path: "/", component: "@/pages/index" }],
   fastRefresh: {},
-  //开启qiankun配置
+  // Enable qiankun configuration
   qiankun: {
     slave: {},
   },
 });
 ```
 
-> 这里只是做了简单的集成配置，更过功能请参看[@umijs/plugin-qiankun](https://umijs.org/zh-CN/plugins/plugin-qiankun)
+> Here is just a simple integration configuration, for more functions, please refer to[@umijs/plugin-qiankun](https://umijs.org/zh-CN/plugins/plugin-qiankun)
 
-3. 加载效果
+3. loading effect
 
-![](https://files.mdnice.com/user/16854/689c849d-c00e-4ffe-bcec-85df5c9fbfd9.png)
+![umi](./images/2022-05-15-23-46-42.png)
 
-### 微应用非 webpack 应用
+### Microapps non-webpack apps
 
-> 非 webpack 应用有个需要注意点的点：接入之前请确保你的项目里的图片、音视频等资源能正常加载，如果这些资源的地址都是完整路径（例如 <https://qiankun.umijs.org/logo.png>），则没问题。如果都是相对路径，需要先将这些资源上传到服务器，使用完整路径。
+> There is a point to note for non-webpack applications: Before accessing, please make sure that the resources such as pictures, audio and video in your project can be loaded normally. If the addresses of these resources are full paths (for example, <https://qiankun.umijs.org/logo.png>), no problem. If they are all relative paths, you need to upload these resources to the server first and use the full path.
 
-1. 入口文件声明 `entry`入口
+1. entry file declaration `entry` entry
 
 ```html
 <!DOCTYPE html>
@@ -719,11 +717,11 @@ export default defineConfig({
   </head>
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <body>
-    <div id="test">测试微应用</div>
+    <div id="test">Test Microapps</div>
   </body>
 </html>
 
-<!-- entry 入口 -->
+<!-- entry  -->
 <script src="./index.js" entry></script>
 ```
 
@@ -731,12 +729,13 @@ export default defineConfig({
 
 ```js
 const render = ($) => {
-  // 这里可以在渲染之前做些什么。。。
+  // $('#test').html('Hello, render with jQuery');
+  // What can be done todo here before rendering...
   return Promise.resolve();
 };
 
 ((global) => {
-  //purehtml 是对应的微应用名称
+  //purehtml is the corresponding micro-app name
   global["purehtml"] = {
     bootstrap: () => {
       console.log("purehtml bootstrap");
@@ -757,8 +756,8 @@ const render = ($) => {
 })(window);
 ```
 
-3. 为了方便启动和加载，使用 `http-server` 启动本地服务
-   > 根目录增加 `package.json`文件, 注意`name`:`purehtml`
+3. Convenient to startup and loading, use `http-server` to start the local service
+   > Add `package.json` file to the root directory, note `name`: `purehtml`
 
 ```json
 {
@@ -779,26 +778,26 @@ const render = ($) => {
 }
 ```
 
-4. 加载效果
+4. loading effect
 
-![](https://files.mdnice.com/user/16854/4607f8ea-62ee-42bc-b827-ddaf309710e5.png)
+![purehtml](./images/2022-05-15-23-58-52.png)
 
-### 微应用 Angular
+### Micro application Angular
 
-#### 初始化
+#### initialization
 
 ```bash
-# 安装 CLI
+# install CLI
 $ yarn add -g @angular/cli@9.1.12
-# 创建项目
+# create project
 $ ng new angular_root
-# 启动
+# start
 $ ng serve
 ```
 
-#### 改造成微应用
+#### Transform into a micro-app
 
-1. 在 `src` 目录新增 `public-path.js`：
+1.Add `public-path.js` to the `src` directory:
 
 ```js
 if (window.__POWERED_BY_QIANKUN__) {
@@ -808,7 +807,7 @@ if (window.__POWERED_BY_QIANKUN__) {
 }
 ```
 
-2. 设置 history 模式路由的 base，`src/app/app-routing.module.ts` 文件：
+2. Set the base of history mode routing, `src/app/app-routing.module.ts` file:
 
 ```js
 import { NgModule } from "@angular/core";
@@ -831,7 +830,7 @@ const routes: Routes = [];
 export class AppRoutingModule {}
 ```
 
-3. 修改入口文件，src/main.ts 文件
+3. Modify the entry file, src/main.ts file
 
 ```js
 import './public-path';
@@ -869,14 +868,14 @@ export async function unmount(props: Object) {
 }
 ```
 
-4. 修改 webpack 打包配置
-   > 根据官方指示：先安装 `@angular-builders/custom-webpack` ，注意：angular 9 项目只能安装 9.x 版本，angular 10 项目可以安装最新版。
+4. Modify webpack packaging configuration
+   > According to the official instructions: first install `@angular-builders/custom-webpack` , note: angular 9 projects can only install 9.x version, angular 10 projects can install the latest version.
 
 ```bash
 yarn add @angular-builders/custom-webpack@9.2.0
 ```
 
-> 在根目录增加 `custom-webpack.config.js`
+> Add `custom-webpack.config.js` to the root directory
 
 ```js
 const appName = require("./package.json").name;
@@ -894,7 +893,7 @@ module.exports = {
 };
 ```
 
-> 修改 angular.json 配置文件
+> Modify the angular.json configuration file
 
 ```json
 {
@@ -1019,33 +1018,17 @@ module.exports = {
 }
 ```
 
-5. 启动尝试加载
-   > 哇咔咔！！！ 报错。。。
+> If you get some console errors。 Searching for information, it seems to be a hot update `bug`. I won't explain too much here, a simple brute force solution: `Do not use hot update as a sub-application`.
 
-![](https://files.mdnice.com/user/16854/93a2cfb8-a9df-4188-aca7-d4ecd77e2acf.png)
-
-- 解决方式
-
-  - 主应用中安装 `zoom.js` , 并且在 `import qiankun` 之前引入
-  - 将微应用的 `src/polyfills.ts` 里面的引入 `zone.js`
-  - 微应用 `src/index.html` `<head>` 中引入 `zone.js`
-
-6. 再次启动尝试加载
-   > 哇咔咔！！！ 又报错了。。。 什么鬼，页面倒是加载出来了，但是报了一串红
-
-![](https://files.mdnice.com/user/16854/dc3c0008-baf5-4da0-853c-1ed98fd2bbbf.png)
-
-> 查阅资料，貌似是热更新的 `bug` 啊。 这里不做过多解释，暴力解决方案：`作为子应用时不使用热更新`。
-
-- `package.json` => `script` 中增加如下命令：
+- `package.json` => `script` Add the following commands:
 
 ```js
 "serve:qiankun": "ng serve --disable-host-check --port 8006 --base-href /angular --live-reload false"
 ```
 
-> 作为微应用时使用：`ng serve:qiankuan` 启动加载
+> Use as a micro application: `ng serve:qiankuan` to start loading
 
-> build 报错问题： 修改 `tsconfig.json` 文件
+> Build error: Modify the tsconfig.json file
 
 ```json
 {
@@ -1071,9 +1054,9 @@ module.exports = {
 }
 ```
 
-4. 查看加载效果
+4. Check the loading effect
 
-![](https://files.mdnice.com/user/16854/0ad1c7ff-7202-4337-97e8-e9cb6dac344f.png)
+![angular](./images/2022-05-16-00-08-24.png)
 
 ## 应用间通信
 
