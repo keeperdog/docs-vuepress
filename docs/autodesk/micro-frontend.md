@@ -77,7 +77,7 @@ The micro frontends architecture is designed to solve a single application in a 
 
   - Some non-webpack-built projects, such as jQuery projects, can follow this.
 
-* **Angular Microapps：**
+- **Angular Microapps：**
 
   - Version of @angular/cli@9.1.12 used
 
@@ -100,28 +100,28 @@ The micro frontends architecture is designed to solve a single application in a 
 
 > The basic environment is completed, and some menus and routes are added to the main application for switching between the main application page and the main application and the micro application. The page layout and routing configuration will not be introduced too much here, and the source code will be provided at the end of the article. The general page is as follows:
 
-![](./images/2022-05-15-19-57-12.png)
+![主页](./images/2022-05-15-19-57-12.png)
 
 ### Register the micro application in the main application
 
-> 注册微应用的基础配置信息。当浏览器 url 发生变化时，会自动检查每一个微应用注册的 activeRule 规则，符合规则的应用将会被自动激活。本示列分别有一个主应用五个微应用构成，在主应用中增加微应用的配置文件，对注册微应用做单独的管理。
+> Register the basic configuration information of the micro-app. When the browser url changes, the activeRule rules registered by each micro-app will be automatically checked, and the applications that meet the rules will be automatically activated. This example consists of one main application and six micro-applications. The configuration files of the micro-applications are added to the main application, and the registered micro-applications are managed separately.
 
 ### 注册微应用基本配置
 
-> 主应用 src 文件下增加 `registerMicroAppsConfig.ts`，内容如下：
+> Add registerMicroAppsConfig.ts under the src folder of the main application, the contents are as follows:：
 
 ```javascript
 const loader = (loading: boolean) => {
-  // 此处可以获取微应用是否加载成功,可以用来触发全局的 loading
+  // Here you can get whether the sub-application is loaded successfully,  which can be used to trigger the global loading
   console.log("loading", loading);
 };
 
 export const Microconfig = [
-  //name: 微应用的名称,
-  //entry: 微应用的入口,
-  //container: 微应用的容器节点的选择器或者 Element 实例,
-  //activeRule: 激活微应用的规则(可以匹配到微应用的路由),
-  //loader: 加载微应用的状态 true | false
+  //name: the name of the microapp,
+  //entry: The entrance to the micro application,
+  //container: A selector or Element instance for the microapp's container node,
+  //activeRule: Activate the micro-app's rule (which can be matched to the micro-app's route),
+  //loader: state of loading the microapp type is funciton return true | false,
   {
     name: "vue2",
     entry: "http://localhost:8001",
@@ -168,76 +168,83 @@ export const Microconfig = [
 ];
 ```
 
-> 主应用入口文件引入（主应用使用的 umi,所以直接在 pages/index.tsx 引入）
+> The main application entry file imported registerMicroAppsConfig.ts and qiankun (if the main application uses umi, it is directly imported in pages/index.tsx)
 
 ```javascript
-import LayoutPage from "@/layout/index";
+import LayoutPage from '@/layout/index';
+import 'zone.js/dist/zone';
 import {
   registerMicroApps,
   start,
+  setDefaultMountApp,
   addGlobalUncaughtErrorHandler,
-} from "qiankun";
-import { Microconfig } from "@/registerMicroAppsConfig";
+  initGlobalState,
+  MicroAppStateActions,
+} from 'qiankun';
+import { Microconfig } from '@/registerMicroAppsConfig';
 
-// 注册微应用
+/**
+ * Register a Microapp
+ */
 registerMicroApps(Microconfig, {
-  // qiankun 生命周期钩子 - 微应用加载前
+  // qiankun Lifecycle Hooks - Before Microapps Load
   beforeLoad: (app: any) => {
-    console.log("before load", app.name);
+    console.log('before load', app.name);
     return Promise.resolve();
   },
-  // qiankun 生命周期钩子 - 微应用挂载后
+  // qiankun Lifecycle hooks - after the microapp is mounted
   afterMount: (app: any) => {
-    console.log("after mount", app.name);
+    console.log('after mount', app.name);
     return Promise.resolve();
   },
 });
 
-// 启动 qiankun
-start();
+/**
+ * start qiankun
+ */
+// start();
+// There are many other configuration Options
+start({
+  prefetch: true, // enable preload
+  sandbox: {
+    experimentalStyleIsolation: true, //   optional, whether to open the js sandbox, default is true.
+  },
+});
+
+/**
+ * Set the micro-app that is entered by default after the main application is started
+ * ActiveRule corresponding to the sub-application
+ */
+// setDefaultMountApp('/purehtml');
+
+// Add global exception catch
+addGlobalUncaughtErrorHandler((handler) => {
+  console.log('exception catch ====', handler);
+});
+
+// global state
+const state = {
+  id: 'main_application',
+};
+const actions: MicroAppStateActions = initGlobalState(state);
+
+actions.onGlobalStateChange((state, prev) => {
+  // state: the state after the change; prev the state before the change
+  console.log('state====', state, 'prev====', prev);
+});
+
+actions.setGlobalState({
+  id: 'main_app',
+});
 
 export default function IndexPage({ children }: any) {
   return (
     <LayoutPage>
       <div>{children}</div>
-      {/* 增加容器，用于显示微应用 */}
       <div id="subContainer"></div>
     </LayoutPage>
   );
 }
-```
-
-### 添加全局异常捕获
-
-```javascript
-// 添加全局异常捕获
-addGlobalUncaughtErrorHandler((handler) => {
-  console.log("异常捕获", handler);
-});
-```
-
-### 开启预加载&沙箱模式
-
-- ⚡️prefetch: 开启预加载
-  - true | 'all' | string[] | function
-- 🧳sandbox：是否开启沙箱
-  - strictStyleIsolation 严格模式(`ShadowDOM`)
-  - experimentalStyleIsolation 实验性方案，建议使用
-
-```javascript
-start({
-  prefetch: true, // 开启预加载
-  sandbox: {
-    experimentalStyleIsolation: true, //   开启沙箱模式,实验性方案
-  },
-});
-```
-
-### 设置主应用启动后默认进入的微应用
-
-```js
-import { setDefaultMountApp } from "qiankun";
-setDefaultMountApp("/purehtml");
 ```
 
 ## 创建对应的微应用
