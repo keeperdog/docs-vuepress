@@ -171,8 +171,8 @@ export const Microconfig = [
 > The main application entry file imported registerMicroAppsConfig.ts and qiankun (if the main application uses umi, it is directly imported in pages/index.tsx)
 
 ```javascript
-import LayoutPage from '@/layout/index';
-import 'zone.js/dist/zone';
+import LayoutPage from "@/layout/index";
+import "zone.js/dist/zone";
 import {
   registerMicroApps,
   start,
@@ -180,8 +180,8 @@ import {
   addGlobalUncaughtErrorHandler,
   initGlobalState,
   MicroAppStateActions,
-} from 'qiankun';
-import { Microconfig } from '@/registerMicroAppsConfig';
+} from "qiankun";
+import { Microconfig } from "@/registerMicroAppsConfig";
 
 /**
  * Register a Microapp
@@ -189,12 +189,12 @@ import { Microconfig } from '@/registerMicroAppsConfig';
 registerMicroApps(Microconfig, {
   // qiankun Lifecycle Hooks - Before Microapps Load
   beforeLoad: (app: any) => {
-    console.log('before load', app.name);
+    console.log("before load", app.name);
     return Promise.resolve();
   },
   // qiankun Lifecycle hooks - after the microapp is mounted
   afterMount: (app: any) => {
-    console.log('after mount', app.name);
+    console.log("after mount", app.name);
     return Promise.resolve();
   },
 });
@@ -219,22 +219,22 @@ start({
 
 // Add global exception catch
 addGlobalUncaughtErrorHandler((handler) => {
-  console.log('exception catch ====', handler);
+  console.log("exception catch ====", handler);
 });
 
 // global state
 const state = {
-  id: 'main_application',
+  id: "main_application",
 };
 const actions: MicroAppStateActions = initGlobalState(state);
 
 actions.onGlobalStateChange((state, prev) => {
   // state: the state after the change; prev the state before the change
-  console.log('state====', state, 'prev====', prev);
+  console.log("state====", state, "prev====", prev);
 });
 
 actions.setGlobalState({
-  id: 'main_app',
+  id: "main_app",
 });
 
 export default function IndexPage({ children }: any) {
@@ -364,7 +364,7 @@ module.exports = {
     },
     output: {
       library: `${name}-[name]`,
-      libraryTarget: "umd", 
+      libraryTarget: "umd",
       jsonpFunction: `webpackJsonp*${name}`,
     },
   },
@@ -373,7 +373,7 @@ module.exports = {
 
 4. 主应用查看加载效果
 
-![](https://files.mdnice.com/user/16854/47c58b99-f1f5-42b3-a06c-4804eeaa6827.png)
+![vue2](./images/2022-05-15-23-14-00.png)
 
 ### 微应用 vue3.x
 
