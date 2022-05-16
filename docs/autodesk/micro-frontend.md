@@ -4,7 +4,7 @@
 
 Qiankun is one of an implementation of Micro Frontends, which based on [single-spa](https://github.com/CanopyTax/single-spa). It aims to make it easier and painless to build a production-ready micro frontend architecture system.
 
-Qiankun hatched from Ant Financial’s unified frontend platform for cloud products based on micro frontends architecture. After full testing and polishing of a number of online applications, Ant f2e team extracted its micro frontend kernel and open sourced it. The frontend team hope to help the systems who has the same requirement more convenient to build its own micro frontends application in the community. At the same time, with the help of community, qiankun will be polished and improved.
+Qiankun hatched from Ant Financial’s unified frontend platform for cloud products based on micro frontends architecture. After full testing and polishing of a number of online applications, Ant f2e team extracted its micro frontend kernel and open sourced it. The f2e team hope to help the systems who has the same requirement more convenient to build its own micro frontends application in the community. At the same time, with the help of community, qiankun will be polished and improved.
 
 At present, qiankun has served more than 200 online applications inside Ant, and it's definitely trustworthy in terms of ease of use and completeness.
 
@@ -1058,17 +1058,17 @@ module.exports = {
 
 ![angular](./images/2022-05-16-00-08-24.png)
 
-## 应用间通信
+## Communication mechanism between sub-applications
 
-> 多个应用间通信，这里举个简单的例子：主应用中登录获取用户`id`，当加载微应用时，微应用需要根据不同的用户 `id` 展示不同的数据或者展示不同的页面。这个时候就需要主应用中把对应的用户`id`传到微应用中去。传值方式，这里总结了三种方式：
+> Here is a simple example: log in to the main application to get the user `id`, when loading the micro application, the micro application needs to display different data or display different pages according to different user `id`. At this time, it is necessary to pass the corresponding user `id` from the main application to the micro application. There are three ways to pass value:
 
-- 挂载微应用时直接`props`传值
-- `initGlobalState` 定义全局状态
-- 定义全局的状态池
+- Direct `props` to pass the value when mounting the micro application
+- `initGlobalState` with define global state
+- Define a global state pool
 
-### props 传值
+### props pass by value
 
-> 注册微应用的基础配置信息时，增加 `props` ,传入微应用需要的信息
+> When registering the basic information of the micro-application, add `props` and pass in the information required by the micro-application
 
 ```js
 {
@@ -1078,119 +1078,102 @@ module.exports = {
     activeRule: '/vue2',
     //props
     props: {
-      id: 'props基础传值方式'
+      id: 'props, Basic pass-by-value method'
     },
     loader,
   }
 ```
 
-> 微应用中在 `mount` 生命周期 `props` 中获取
+> Acquired `props` in the microapp on the `mount` lifecycle
 
 ```js
 export async function mount(props) {
-  console.log("获取主应用传值", props);
+  console.log("value from main-app===", props);
   render(props);
 }
 ```
 
-![](https://files.mdnice.com/user/16854/fc083de1-7185-41af-8b01-81f5fdafffcf.png)
+### initGlobalState (recommended)
 
-### initGlobalState (推荐)
+> Define the global state and return the communication method. It is recommended to use it in the main application, and the micro application obtains the communication method through props.
 
-> 定义全局状态，并返回通信方法，建议在主应用使用，微应用通过 `props` 获取通信方法。
-
-1. 主应用中声明全局状态
+1. Declare global state in the main application
 
 ```js
-// 全局状态
+// global state
 const state = {
-  id: "main_主应用",
+  id: "main_application",
 };
-// 初始化 state
 const actions: MicroAppStateActions = initGlobalState(state);
-// 监听状态变更
+
 actions.onGlobalStateChange((state, prev) => {
-  // state: 变更后的状态; prev 变更前的状态
-  console.log(state, prev);
+  // state: the state after the change; prev the state before the change
+  console.log("state====", state, "prev====", prev);
+});
+
+actions.setGlobalState({
+  id: "main_app",
 });
 ```
 
-2. 微应用获取通信,同样在 `mount` 生命周期中获取
+2. Micro-apps get data, also in the `mount` life cycle
 
-```js
-export async function mount(props) {
-  console.log("initGlobalState传值", props);
-  render(props);
-}
-```
-
-打印出来发现好像并没有我们需要的值：
-
-![](https://files.mdnice.com/user/16854/8c132e3e-aa5d-4ccd-92b3-2c9d1b3f517f.png)
-
-> 我想在这里，细心的同学应该会发现，好像有个`onGlobalStateChange`，`setGlobalState` 这两个方法，见名知意，应该是用来做状态的监听和修改使用的。不管什么神仙，先调用下试试看喽
-
-> 封装一个 `storeTest` 方法做统一调用
+> Define a `storeTest` method for unified invocation
 
 ```js
 function storeTest(props) {
-  props.onGlobalStateChange &&
-    props.onGlobalStateChange(
-      (value, prev) =>
-        console.log(`[onGlobalStateChange - ${props.name}]:`, value, prev),
-      true
-    );
-  // 为了演示效果明显增加定时器
+  // Add a timer for the demonstration effect
   setTimeout(() => {
     props.setGlobalState &&
       props.setGlobalState({
-        id: `${props.name}_子应用`,
+        id: `${props.name}_sub_application`,
       });
   }, 3000);
+
+  props.onGlobalStateChange &&
+    props.onGlobalStateChange(
+      (value) => console.log(`[onGlobalStateChange - ${props.name}]:`, value),
+      true
+    );
 }
 ```
 
 ```js
 export async function mount(props) {
+  console.log("value from main-app===", props);
   storeTest(props);
   render(props);
 }
 ```
 
-![](https://files.mdnice.com/user/16854/1d676684-f0ca-4b34-917e-266dc0cd3965.png)
+3. To sum up
 
-`输出两次 ？？？`
+- `initGlobalState` initial `state`
+- `onGlobalStateChange` Monitor state changes
+- `setGlobalState` Modify status
+- `offGlobalStateChange` remove monitor
 
-> 输出两次的原因是在 `微应用` 中调用 `setGlobalState` , 主应用中的 `onGlobalStateChange` 也会执行
-
-3. 总结下
-
-- `initGlobalState` 初始化 `state`
-- `onGlobalStateChange` 监听状态变更
-- `setGlobalState` 修改状态
-- `offGlobalStateChange` 移除监听
-
-4. 问题
-   > 如果想在微应用某个页面内修改全局状态应该怎么做 ？ 当然是可以把 `props` 中的方法挂载到当前应用的全局上啦。例如：
+4. question
+   > What should I do if I want to modify the global state within a page of the microapp? Of course, you can mount the methods in `props` to the global of the current application. E.g:
 
 ```js
 export async function mount(props) {
   storeTest(props);
   render(props);
-  // 挂载到全局 instance 上
+  // Mount to the global instance
   instance.config.globalProperties.$onGlobalStateChange =
     props.onGlobalStateChange;
   instance.config.globalProperties.$setGlobalState = props.setGlobalState;
 }
 ```
 
-### 定义全局的状态池
+### Define a global state pool
 
-> 定义全局状态池，说白了就是在主应用中定义全局状态，可以使用 `redux` `vuex` 等来定义。定义好全局状态，可以定义一个全局的类，类中声明两个方法，一个用来获取全局状态，一个用来修改全局状态。定义好之后，把这个类通过第一种 `props` 的传值方式传入，微应用通过 `mount`=>`props` 接收。这种方式就不做演示，个人建议使用第二种方式。
+> Defining the global state pool is to define the global state in the main application, which can be defined using `redux` `vuex`, and so on. After defining the global state, you can define a global class and declare two methods in the class, one is used to obtain the global state, and the other is used to modify the global state. After the definition is complete, the class is passed in through the first `props` value-passing method, and the micro-application receives it through `mount`=>`props`. This method will not be demonstrated, and I personally recommend using the second method.
 
 ## Summary
 
-> 到这里，基于`qiankun`的微前端搭建基本完成。本文只是对 qiankun 从 0 搭建到搭建过程中遇到问题并且解决问题以及后期项目中的一些基础配置和使用做简单概述。下一次将会对`多应用部署`问题做个详细概述。
+> The micro-frontend construction based on `qiankun` is basically completed. This article is only for qiankun from 0 to the construction process encountered problems and solve problems
 
 In summary，If there is micro frontend applications scenario，I recommend that the team choose qiankun.
 
